@@ -8,6 +8,10 @@
 
 See also [Google Cloud Platform: free](https://cloud.google.com/free/?hl=ja).
 
+## Using Docker
+If you familiar with Docker, I recommend using [this image](https://hub.docker.com/r/google/cloud-sdk/).  
+It was installed gcloud and node.js.
+
 ## [HTTP Tutorial](https://cloud.google.com/functions/docs/tutorials/http?hl=ja)
 ### Setting up
 1. GO TO THE [MANAGE RESOURCES PAGE](https://console.cloud.google.com/cloud-resource-manager?_ga=2.185008361.-1306992646.1554131714) and make project.
@@ -16,18 +20,18 @@ See also [Google Cloud Platform: free](https://cloud.google.com/free/?hl=ja).
 1. [Install and Initialize Cloud SDK](https://cloud.google.com/sdk/docs/?hl=ja)
 1. Update and install gcloud components:  
 `gcloud components update`
-1. if you didn't, [Setting up a Node.js development environment](https://cloud.google.com/nodejs/docs/setup?hl=ja)
+1. if you don't have a Node.js development environment, see [this](https://cloud.google.com/nodejs/docs/setup?hl=ja).
 ### Make and deproy apps
-1. Make local folder 　
+1. Make local folder  
 `mkdir ~/your-foler && cd ~/your-foler`
 1. vi [index.js](index.js)
 1. Deploy app  
 `gcloud beta functions deploy helloGET --trigger-http`  
 If the warning about runtime flag bothers you, see [this](https://cloud.google.com/functions/docs/concepts/go-runtime?hl=ja).
-1. call your httpsTrigger by curl.
+1. call your httpsTrigger by curl.  
 `curl "https://[YOUR_REGION]-[YOUR_PROJECT_ID].cloudfunctions.net/helloGET"
 `
-1. You will get response "Hello World!".
+1. You will get response "Hello World!".  
 If you need response status, implement as follow:
 ```
 exports.helloGET = (req, res) => {
