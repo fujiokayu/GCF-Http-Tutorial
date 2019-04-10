@@ -9,8 +9,11 @@
 See also [Google Cloud Platform: free](https://cloud.google.com/free/?hl=ja).
 
 ## Using Docker
-If you familiar with Docker, I recommend using [this image](https://hub.docker.com/r/google/cloud-sdk/).  
-It was installed gcloud and node.js.
+If you familiar with Docker, I recommend you to use [this image](https://hub.docker.com/r/google/cloud-sdk/).  
+This image has no vi or vim, so install as follow:  
+```
+apt-get install vim
+```
 
 ## [HTTP Tutorial](https://cloud.google.com/functions/docs/tutorials/http?hl=ja)
 ### Setting up
@@ -26,8 +29,7 @@ It was installed gcloud and node.js.
 `mkdir ~/your-foler && cd ~/your-foler`
 1. vi [index.js](index.js)
 1. Deploy app  
-`gcloud beta functions deploy helloGET --trigger-http`  
-If the warning about runtime flag bothers you, see [this](https://cloud.google.com/functions/docs/concepts/go-runtime?hl=ja).
+`gcloud beta functions deploy helloGET --runtime nodejs8 --trigger-http`  
 1. call your httpsTrigger by curl.  
 `curl "https://[YOUR_REGION]-[YOUR_PROJECT_ID].cloudfunctions.net/helloGET"
 `
